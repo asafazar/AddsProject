@@ -1,0 +1,21 @@
+<h3><i class="fa fa-angle-right"></i> Your Displayed Ads </h3>
+<hr>
+
+<h2 style="color: #052f57; font-weight: bold; text-align: center" ng-show="ad.name.length">{{ad.name}} by {{ad.owner}} <br></h2>
+
+<div class="row">
+    <div class="main-chart">
+        <div class="col-md-4 mb" style="padding-top: 5px">
+            <span ng-repeat="text in ad.texts">
+                <h4> {{text.text}} </h4>
+            </span>
+        </div><!-- /row -->
+        <div ng-repeat="image in ad.images" class="col-md-4 mb">
+            <div>
+                <div style="margin-left: 5px; margin-right: 5px;">
+                    <img src="{{image.url}}" width="300" height="300" style="margin:20px">
+                </div><! --/grey-panel -->
+            </div><!-- /col-md-4-->
+        </div><!-- /row -->
+    </div>
+</div>

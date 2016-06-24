@@ -1,0 +1,216 @@
+{
+	stationId: '1',
+	name: 'BK SUPER SEVEN INCHER',
+	owner: 'Burger King',
+	fields: 'food',
+	moneyInvested: 200,
+	texts: [
+		{
+			text: 'BURGER KING'
+		},
+		{
+			text: 'ITS JUST TASTES BETTER'
+		},
+		{
+			text: 'ITLL BLOW BLOW YOUR MIND AWAY'
+		},
+		{
+			text: 'BK SUPER SEVEN INCHER'
+		},
+		{
+			text: 'BETTER THAN MCDONALDS'
+		}
+	],
+	images: [
+		{
+			url: '/images/ads/ad3.png'
+		},
+		{
+			url: '/images/ads/ad2.png'
+		}
+	],
+	timeFrame: {startDate:"2014-01-01",
+				endDate:"2014-12-31"}
+}
+{
+	stationId: '2',
+	name: 'PEPSI MAX',
+	owner: 'Pepsico',
+	fields: 'bavrages',
+	moneyInvested: 2000,
+	texts: [
+		{
+			text: 'PEPSI MAX'
+		},
+		{
+			text: 'MAXIMUM TASTE, NO SUGER'
+		},
+		{
+			text: 'Any Weather is Pepsi Weather'
+		},
+		{
+			text: 'Say Pepsi, Please'
+		},
+		{
+			text: 'Drink pepsi-cola!'
+		}
+	],
+	images: [
+		{
+			url: '/images/ads/ad1.png'
+		}
+	],
+	timeFrame:
+			{	
+			startDate:"2014-03-01",
+			endDate:"2014-04-30"
+			}
+}
+{
+	stationId: '3',
+	name: 'AMAZON',
+	owner: 'Amazon',
+	fields: 'websites',
+	moneyInvested: 300,
+	texts: [
+		{
+			text: 'Buy our books !'
+		}],
+	images: [],
+	timeFrame:{	
+			startDate:"2014-05-01",
+			endDate:"2014-06-15"
+		}
+}
+{
+	stationId: '5',
+	name: 'VODAFONE',
+	owner: 'Vodafone',
+	fields: 'phones',
+	moneyInvested: 250,
+	texts: [
+		{
+			text: 'VODAFONE'
+		},
+		{
+			text: 'ONE NET EXPRESS'
+		}
+	],
+	images: [ 
+		{ 
+			url: '/images/ads/ad4.png'
+		} 
+	],
+	timeFrame: {	
+			startDate:"2014-03-29",
+			endDate:"2014-04-15"
+		}
+}
+{
+	stationId: '3',
+	name: 'Nokia',
+	owner: 'Nokia',
+	fields:'phones',
+	moneyInvested: 450,
+	texts: [
+		{
+			text: 'NOKIA'
+		},
+		{
+			text: 'Connecting people'
+		},
+		{
+			text: 'MICROSOFT'
+		},
+		{
+			text: 'NOKIA LUMIA'
+		},
+		{
+			text: 'LOL JUST LUMIA'
+		}
+	],
+	images: [
+		{
+			url: 'http://i.webapps.microsoft.com/r/image/view/-/4030040/extraHighRes/1/-/Nokia-Lumia-620-2-jpg.jpg'
+		},
+		{
+			url: 'http://i.telegraph.co.uk/multimedia/archive/01712/nokia-3310-old-gol_1712908b.jpg'
+		}
+	],
+	timeFrame:{	
+			startDate:"2014-03-01",
+			endDate:"2016-04-30"
+		}
+}
+{
+	stationId: '1',
+	name: 'Mirinda',
+	owner: 'Pepsico',
+	fields:'bavrages',
+	moneyInvested: 550,
+	texts: [
+		{
+			text: 'Yummi'
+		},
+		{
+			text: 'Orange and good'
+		},
+		{
+			text: 'Better than fanta'
+		},
+		{
+			text: '0% vitamin C'
+		},
+		{
+			text: '100% vitamin M'
+		}
+	],
+	images: [
+		{
+			url: 'http://company.unipack.ru/light_editor_img/images/2013-5-29/file1369815379.jpg'
+		},
+		{
+			url: 'http://cuticonedesign.com/wp-content/uploads/2012/04/06_Pepsi_mirinda.jpg'
+		}
+	],
+	timeFrame:{	
+			startDate:"2012-03-01",
+			endDate:"2016-04-30"
+		}
+}
+{
+	stationId: '7',
+	name: 'iPhone 6',
+	owner: 'Apple',
+	fields:'phones',
+	moneyInvested: 750,
+	texts: [
+				{
+			text: 'Now only 300$ more than it should'
+		},
+		{
+			text: 'Pay to feel rich'
+		},
+		{
+			text: 'We copy android'
+		},
+		{
+			text: 'Want a bite from the apple ? '
+		}
+
+	],
+	images: [
+		{
+			url: 'http://pngimg.com/upload/iphone_PNG5740.png'
+		},
+		{
+			url: '/images/ads/ad1.png'
+		}
+	],
+	timeFrame:{	
+			startDate:"2011-03-01",
+			endDate:"2020-04-30"
+		}
+}
+
+	

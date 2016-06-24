@@ -1,0 +1,23 @@
+<h3><i class="fa fa-angle-right"></i> Songs Search</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i> Search for some songs for your ads!</h4>
+            <span>
+                <input type="text" class="form-control"  style="width: 171px; height: 34px; margin-left: 20px" ng-model="searchTerm" ng-change="requestItunesData(searchTerm)" placeholder="search term"/>
+            </span>
+
+            <hr>
+            <table ng-table="tableParams" show-filter="true" class="table ">
+                <tr ng-repeat="item in $data">
+                    <td data-title="'Track name'" sortable="'trackName'" filter="{ 'trackName': 'text' }">{{item.trackName}}</td>
+                    <td data-title="'Artist'" sortable="'artistName'" filter="{ 'artistName': 'text' }"> {{item.artistName}}</td>
+                    <td data-title="'Album'" sortable="'collectionName'" filter="{ 'collectionName': 'text' }"> {{item.collectionName}}</td>
+                    <td data-title="'Track price'" sortable="'trackPrice'" >{{item.trackPrice}}</td>
+                    <td data-title="'Preview'"><a href="{{item.previewUrl}}" target="_blank">listen</a></td>
+                    <td data-title="'Link'" ><a href="{{item.trackViewUrl}}" target="_blank">buy</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

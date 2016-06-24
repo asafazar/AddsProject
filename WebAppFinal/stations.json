@@ -1,0 +1,80 @@
+{	
+	'id': '1',
+	'name': 'Rothschild Blvd',
+	'location':	{
+		lat: '32.069896',
+		long: '34.778652'
+	}
+}
+{	
+	'id': '2',
+	'name': 'Jerusalem',
+	'location':	{
+		lat: '31.777572',
+		long: '35.230379'
+	}
+}
+{	
+	'id': '3',
+	'name': 'HaYarkon St',
+	'location':	{
+		lat: '32.074829',
+		long: '34.766416'
+	}
+}
+{	
+	'id': '4',
+	'name': 'Ashdod',
+	'location':	{
+		lat: '31.808254',
+		long: '34.653969'
+	}
+}
+{	
+	'id': '5',
+	'name': 'Holon',
+	'location':	{
+		lat: '32.014117',
+		long: '34.784088'
+	}
+}
+{	
+	'id': '6',
+	'name': 'Netanya',
+	'location':	{
+		lat: '32.318691',
+		long: '34.863052'
+	}
+}
+{	
+	'id': '7',
+	'name': 'Haifa',
+	'location':	{
+		lat: '32.797304',
+		long: '34.994202'
+	}
+}
+{	
+	'id': '8',
+	'name': 'Afula',
+	'location':	{
+		lat: '32.608941',
+		long: '35.289459'
+	}
+}
+{	
+	'id': '9',
+	'name': 'Nahariya',
+	'location':	{
+		lat: '33.004849',
+		long: '35.101318'
+	}
+}
+{	
+	'id': '10',
+	'name': 'Ramot Naftali',
+	'location':	{
+		lat: '33.101536',
+		long: '35.559998'
+	}
+}
