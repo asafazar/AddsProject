@@ -6,14 +6,16 @@ Website: http://blacktie.co
 Premium: http://www.gridgum.com
 */
 
-/* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
-
-/* BASIC THEME CONFIGURATION */
-body {
+@font-face {
+    font-family: 'futuraMediumBT';
+    src: url('/fonts/futuraMediumBT.eot');
+    src: local('futuraMediumBT'), url('/fonts/futuraMediumBT.woff') format('woff'), url('/fonts/futuraMediumBT.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_61656">Text with this font applied</p> */
+.body {
+    font-family: 'futuraMediumBT' !important;
     color: #797979;
-	background: #f2f2f2;
-    font-family: 'Ruda', sans-serif;
+    background: #f2f2f2;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
@@ -92,8 +94,8 @@ a, a:hover, a:focus {
 
 .btn-theme {
   color: #fff;
-  background-color: #68dff0;
-  border-color: #48bcb4;
+  background-color: #e466f0;
+  border-color: #9D84A1;
 }
 .btn-theme:hover,
 .btn-theme:focus,
@@ -101,8 +103,8 @@ a, a:hover, a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
   color: #fff;
-  background-color: #48bcb4;
-  border-color: #48bcb4;
+  background-color: #9D84A1;
+  border-color: #9D84A1;
 }
 
 .btn-theme02 {
@@ -218,10 +220,10 @@ ul.top-menu > li > .logout {
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
-	border: 1px solid #64c3c2 !important;
+	border: 1px solid #e466f0 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #68dff0;
+	background: #e466f0;
 	margin-top: 15px;
 }
 
@@ -232,7 +234,7 @@ ul.top-menu > li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #424a5d;
+    background: #DFD8DE;
 }
 
 #sidebar h5 {
@@ -295,7 +297,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-    background: #424a5d;
+    background: #DFD8DE;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -316,7 +318,7 @@ ul.sidebar-menu li ul.sub li a {
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    color: #aeb2b7;
+    color: #725675;
 }
 
 ul.sidebar-menu li ul.sub li a:hover {
@@ -325,7 +327,7 @@ ul.sidebar-menu li ul.sub li a:hover {
 }
 
 ul.sidebar-menu li ul.sub li.active a {
-    color: #68dff0;
+    color: #e466f0;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -350,7 +352,7 @@ ul.sidebar-menu li a span{
 }
 
 ul.sidebar-menu li a{
-    color: #aeb2b7;
+    color: #302532;
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
@@ -364,7 +366,7 @@ ul.sidebar-menu li a{
 }
 
 ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-    background: #68dff0;
+    background: #e466f0;
     color: #fff;
     display: block;
 
@@ -398,6 +400,7 @@ ul.sidebar-menu li a.active i {
 /* MAIN CONTENT CONFIGURATION */
 #main-content {
     margin-left: 210px;
+    background: #725675;
 }
 
 #container > .header, .footer {
@@ -413,7 +416,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: rgba(40, 65, 95, 0.62);
+    background: rgba(48, 37, 50, 0.62);
     border-bottom: 1px solid #c9aa5f;
 }
 
@@ -445,7 +448,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #68dff0;
+    color: #e466f0;
 }
 
 
@@ -515,7 +518,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .dropdown-menu.extended li p {
     background-color: #F1F2F7;
-    color: #666666;
+    color: #725675;
     margin: 0;
     padding: 10px;
     border-radius: 4px 4px 0px 0px;
@@ -523,7 +526,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #68dff0;
+    background-color: #e466f0;
     color: #fff;
 }
 
@@ -546,7 +549,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .dropdown-menu.extended li a:hover {
     background-color: #F7F8F9 !important;
-    color: #2E2E2E;
+    color: #725675;
 }
 
 .dropdown-menu.tasks-bar .task-info .desc {
@@ -644,7 +647,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .full-width .dropdown-menu.extended.logout > li > a:hover {
     background: none !important;
-    color: #50c8ea !important;
+    color: #e466f0 !important;
 }
 
 .dropdown-menu.extended.logout > li > a:hover {
@@ -652,7 +655,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended.logout > li > a:hover i {
-    color: #50c8ea;
+    color: #e466f0;
 }
 
 .dropdown-menu.extended.logout > li > a i {
@@ -825,7 +828,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .ds a {
-	color: #68dff0;
+	color: #e466f0;
 }
 
 /* LINE ICONS CONFIGURATION */
@@ -921,7 +924,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     position: absolute;
     bottom: 0;
     background: #ff865c;
-    color: #68dff0;
+    color: #e466f0;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -1112,7 +1115,7 @@ PANELS CONFIGURATIONS
   height: 250px;
 }
 .stock .stock-chart {
-  background: #00c5de;
+  background: #e466f0;
 }
 .stock .stock-chart #chart {
     height: 10.7em;
@@ -1153,7 +1156,7 @@ PANELS CONFIGURATIONS
 
 /*Content Panel*/
 .content-panel {
-	background: #ffffff;
+	background: #725675;
 	box-shadow: 0px 3px 2px #aab2bd;
 	padding-top: 15px;
 	padding-bottom: 5px;
@@ -1471,10 +1474,10 @@ PANELS CONFIGURATIONS
 }
 .steps label:hover{
   background: #2B2E30;
-  color: #46b7e5
+  color: #e466f0
 }
 .steps label:hover:before{
-  border: 1px solid #46b7e5;
+  border: 1px solid #e466f0;
 }
 #op1:checked ~ label[for=op1]:before,
 #op2:checked ~ label[for=op2]:before,
@@ -1514,7 +1517,7 @@ PANELS CONFIGURATIONS
 	font-weight: 900;
 }
 .profile-01 {
-	background: #68dff0;
+	background: #e466f0;
 	height: 50px;
 }
 .profile-01:hover {
@@ -1562,7 +1565,7 @@ PANELS CONFIGURATIONS
 	color: #cdcdcd;
 }
 .pr2-social a:hover {
-	color: #68dff0;
+	color: #e466f0;
 }
 .pr2-social i {
 	margin-top: 15px;
@@ -2191,7 +2194,7 @@ label {
 }
 
 .ui-sortable li.list-primary {
-    border-left: 3px solid #41CAC0;
+    border-left: 3px solid #e466f0;
 }
 
 .ui-sortable li.list-success {
@@ -2207,7 +2210,7 @@ label {
 }
 
 .ui-sortable li.list-info {
-    border-left: 3px solid #58C9F3;
+    border-left: 3px solid #e466f0;
 }
 
 .ui-sortable li.list-inverse {
@@ -2216,7 +2219,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #e466f0;
     color: #fff;
     padding: 10px 0;
 }
@@ -2274,5 +2277,5 @@ label {
 
 li.asideList > a.active {
     background-color: transparent !important;
-    color: #68dff0 !important;
+    color: #e466f0 !important;
 }
