@@ -29,13 +29,26 @@ a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
 }
+
+.fa-angle-right{
+    color: #DFD8DE;
+}
+
+.head-h{
+    color: #DFD8DE;
+}
+
+.head-l{
+    color: #D297A5;
+}
+
 ::selection {
 
-    background: #68dff0;
+    background: #e466f0;
     color: #fff;
 }
 ::-moz-selection {
-    background: #68dff0;
+    background: #e466f0;
     color: #fff;
 }
 
@@ -46,7 +59,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #68dff0;
+	background: #e466f0;
 }
 
 .modal-title {
@@ -69,8 +82,7 @@ a, a:hover, a:focus {
 	background-color: #ffffff;
 	outline: none !important;
 	text-decoration: none;
-}	
-
+}
 
 
 /*Theme Backgrounds*/
@@ -168,8 +180,6 @@ hr {
   border: 0;
   border-top: 1px solid #797979;
 }
-
-
 
 /*Helpers*/
 
@@ -513,8 +523,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     /* Safari and Chrome */
     .dropdown-menu.extended  {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
-    };
     }
+}
 
 .dropdown-menu.extended li p {
     background-color: #F1F2F7;
@@ -1610,14 +1620,14 @@ PANELS CONFIGURATIONS
 }
 .panel.terques-chart {
     background: transparent;
-    color: #797979;
+    color: #DFD8DE;
 }
 .panel.terques-chart .chart-tittle .value {
     float: right;
     color: #fff;
 }
 .panel.terques-chart .chart-tittle .value a {
-    color: #2f2f2f;
+    color: #DFD8DE;
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle .value a:hover, .panel.terques-chart .chart-tittle .value a.active {
@@ -1696,7 +1706,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-  background-color: #68dff0;
+  background-color: #e466f0;
 	background-image:url(../img/zoom.png);
 	background-repeat:no-repeat;
 	background-position:center;
