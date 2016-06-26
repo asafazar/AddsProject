@@ -72,7 +72,13 @@ displayModule.controller('displayAdsByStationCtrl',function($scope,$timeout,$rou
     if ($scope.stationId === '0') {
       $scope.selectedText = "Select station";
     } else{
-        $scope.selectedText = "Station " + $scope.stationId;
+        $scope.stations.forEach(function(station)
+        {
+           if (station.id === $scope.stationId)
+           {
+               $scope.selectedText = station.name;
+           }
+        });
     }
 
     $scope.hideAdFunc = function() {
