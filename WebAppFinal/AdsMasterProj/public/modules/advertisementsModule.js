@@ -1,6 +1,6 @@
-var adsModule = angular.module('adsModule',['socketModule']);
+var advertisementsModule = angular.module('advertisementsModule',['socketModule']);
 
-adsModule.service('adsService',function(serverApi){
+advertisementsModule.service('adsService',function(serverApi){
     this.activeAds = [];
     this.allAds = [];
     this.num = 0;

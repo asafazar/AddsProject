@@ -1,6 +1,6 @@
 var mongoModule = require('mongodb');
 var mongoClient = mongoModule.MongoClient;
-var mongoDb;
+var mongoDB;
 var dbName = 'adsServer';
 
 //************
@@ -10,25 +10,25 @@ exports.connect = function(successCallback) {
     mongoClient.connect('mongodb://localhost:27017/', function (err, db) {
         if (err) throw err;
 
-        mongoDb = db;
-        console.log("Connected to MongoDB");
+        mongoDB = db;
+        console.log("Successfully Connected to MongoDB");
         successCallback();
     });
 };
 
 exports.disconnect = function() {
-    mongoDb.close();
+    mongoDB.close();
 };
 
 //************
 //  Basic Collection retrival
 //************
 function getAdsCollection() {
-    return mongoDb.db(dbName).collection('ads');
+    return mongoDB.db(dbName).collection('ads');
 }
 
 function getDisplaysCollection() {
-    return mongoDb.db(dbName).collection('displays');
+    return mongoDB.db(dbName).collection('displays');
 }
 
 //************

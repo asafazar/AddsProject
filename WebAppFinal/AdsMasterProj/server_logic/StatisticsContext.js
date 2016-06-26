@@ -1,5 +1,5 @@
-var mongoConn = require('./MongoConnector.js');
+var mongoDao = require('./MongoDAO.js');
 
 exports.getOwnersData = function(dataCallback) {
-    mongoConn.getOwnersData(dataCallback);
+    mongoDao.getOwnersData(dataCallback);
 };

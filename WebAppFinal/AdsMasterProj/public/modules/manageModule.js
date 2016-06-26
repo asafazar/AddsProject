@@ -1,6 +1,6 @@
-var manageModule = angular.module('manageModule',['ngRoute','ngTable','ui.bootstrap','socketModule','adsModule']);
+var manageModule = angular.module('manageModule',['ngRoute','ngTable','ui.bootstrap','socketModule','advertisementsModule']);
 
-manageModule.controller('manageIndexCntrl',function ($scope,$filter,ngTableParams, serverApi, adsService){
+manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams, serverApi, adsService){
     $scope.tempa = adsService;
     $scope.ads = $scope.tempa.allAds;
 
