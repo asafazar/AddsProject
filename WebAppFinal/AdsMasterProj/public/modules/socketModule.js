@@ -9,11 +9,7 @@ socketModule.factory('socket', function ($rootScope) {
 
     var serverSocket = io.connect('http://localhost:8080');
 
-
     return {
-        /*
-         * Basic socket API
-         */
         on : function (eventName, callBack){
             serverSocket.on(eventName, function (){
                 var args = arguments;
@@ -35,7 +31,6 @@ socketModule.factory('socket', function ($rootScope) {
         removeAllListeners: function (eventName, callBack) {
             serverSocket.removeAllListeners(eventName);
         }
-
     };
 });
 

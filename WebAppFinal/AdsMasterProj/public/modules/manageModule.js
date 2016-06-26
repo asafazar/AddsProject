@@ -60,7 +60,7 @@ manageModule.controller('EditAd',function($scope,$routeParams,$location,serverAp
             $location.path('/manage');
         }
         else{
-            createWarning(data.alerts[0]);
+            createWarningMessage(data.alerts[0]);
         }
     });
 
@@ -100,7 +100,7 @@ manageModule.controller('createAd',function($scope,$location,serverApi, adsServi
             $location.path('/manage');
         }
         else{
-            createWarning(data.alerts[0], $scope);
+            createWarningMessage(data.alerts[0], $scope);
         }
     });
 
@@ -132,7 +132,7 @@ manageModule.controller('createAd',function($scope,$location,serverApi, adsServi
 //************
 //  Create alerts
 //************
-function createWarning(mes, $scope){
+function createWarningMessage(mes, $scope){
     var newAlert = {
         type:'danger',
         msg : mes
@@ -152,41 +152,41 @@ function validateAd($scope){
     // Ensure basic data is not empty
     if ($scope.ad.name == ""){
         valid = false;
-        createWarning("Ad name cannot be empty", $scope);
+        createWarningMessage("Ad name cannot be empty", $scope);
     }
     if ($scope.ad.stationId == ""){
         valid = false;
-        createWarning("Ad must be linked to station", $scope);
+        createWarningMessage("Ad must be linked to station", $scope);
     }
     if ($scope.ad.owner ==""){
         valid = false;
-        createWarning("Owner name cannot be empty", $scope);
+        createWarningMessage("Owner name cannot be empty", $scope);
     }
     if ($scope.ad.fields ==""){
         valid = false;
-        createWarning("Ad field cannot be empty", $scope);
+        createWarningMessage("Ad field cannot be empty", $scope);
     }
     if ($scope.ad.moneyInvested ==""){
         valid = false;
-        createWarning("Invested money cannot be empty", $scope);
+        createWarningMessage("Invested money cannot be empty", $scope);
     }
     if (($scope.ad.moneyInvested < 100) || ($scope.ad.moneyInvested > 5000)){
         valid = false;
-        createWarning("Invested money needs to be between 100 and 5000", $scope);
+        createWarningMessage("Invested money needs to be between 100 and 5000", $scope);
     }
 
     // Check dates
     if ($scope.ad.timeFrame.startDate ==""){
         valid = false;
-        createWarning("Start date cannot be empty", $scope);
+        createWarningMessage("Start date cannot be empty", $scope);
     }
     if ($scope.ad.timeFrame.endDate ==""){
         valid = false;
-        createWarning("End date cannot be empty", $scope);
+        createWarningMessage("End date cannot be empty", $scope);
     }
     if (new Date($scope.ad.timeFrame.startDate) > new Date($scope.ad.timeFrame.endDate)){
         valid = false;
-        createWarning("End date cannot be after start date", $scope);
+        createWarningMessage("End date cannot be after start date", $scope);
     }
 
     return valid;
