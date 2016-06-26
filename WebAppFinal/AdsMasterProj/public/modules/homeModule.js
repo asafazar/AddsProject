@@ -51,7 +51,7 @@ homeModule.controller('songsController',function ($scope,$filter,ngTableParams,s
     });
 });
 
-homeModule.controller('displaysMapCntrl',function ($scope, serverApi){
+homeModule.controller('displaysMapCtrl',function ($scope, serverApi){
     $scope.map = { center: { latitude: 32.069894, longitude: 34.778652 }, zoom: 8 };
     $scope.map.models = [];
 
@@ -88,7 +88,7 @@ homeModule.controller('displaysMapCntrl',function ($scope, serverApi){
     });
 });
 
-homeModule.controller('statsCntrl',function ($scope, $filter,ngTableParams, serverApi) {
+homeModule.controller('statsCtrl',function ($scope, $filter,ngTableParams, serverApi) {
     $scope.ownersData = [];
     $scope.budgetPieData = [];
     $scope.adsPieData = [];

@@ -1,4 +1,4 @@
-var mongoConn = require('./MongoConnector.js');
+var mongoConn = require('./MongoDAO.js');
 
 exports.getDisplayData = function(dataCallback) {
     var relevantDisplayAds = [];

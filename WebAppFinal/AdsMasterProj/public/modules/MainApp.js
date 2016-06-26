@@ -16,7 +16,7 @@ mainApp.config(function($routeProvider){
             })
         .when('/locations',
             {
-                controller: 'displaysMapCntrl',
+                controller: 'displaysMapCtrl',
                 templateUrl: 'views/home/Stations.html'
             })
         .when('/tips',
@@ -25,7 +25,7 @@ mainApp.config(function($routeProvider){
             })
         .when('/stats',
             {
-                controller : 'statsCntrl',
+                controller : 'statsCtrl',
                 templateUrl: 'views/home/stats.html'
             })
         .when('/contact',
@@ -38,17 +38,17 @@ mainApp.config(function($routeProvider){
             })
         .when('/displayAds',
             {
-                controller : 'displayAdsCntrl',
+                controller : 'displayAdsCtrl',
                 templateUrl: 'views/display/DisplayAds.html'
             })
         .when('/displayAds/:stationId',
             {
-                controller : 'displayAdsByStationCntrl',
+                controller : 'displayAdsByStationCtrl',
                 templateUrl: 'views/display/DispAdsByStation.html'
             })
         .when('/manage',
             {
-                controller : 'manageIndexCntrl',
+                controller : 'manageIndexCtrl',
                 templateUrl: 'views/manage/ManageIndex.html'
             })
         .when('/manage/createAd',
