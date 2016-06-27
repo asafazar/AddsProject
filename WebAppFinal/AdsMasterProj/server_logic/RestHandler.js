@@ -1,8 +1,6 @@
 var querystring = require('querystring');
 var https = require('https');
 
-// var _host = 'https://itunes.apple.com/search';
-
 function performRestRequest(host, endpoint, method, data, success){
     var dataString = JSON.stringify(data);
     var headers = {};
@@ -33,10 +31,9 @@ function performRestRequest(host, endpoint, method, data, success){
         });
 
         res.on('end', function(){
-            console.log("Rest Handler got full response : " + responseString);
+            console.log("RestHandler got full response : " + responseString);
 
             // Ensure repsonse is valid JSON
-            // (if not , do nothing)
             if (isJsonString(responseString)){
                 var responseObject = JSON.parse(responseString);
                 success(responseObject);
@@ -51,10 +48,6 @@ function performRestRequest(host, endpoint, method, data, success){
 
 exports.performRestRequest = performRestRequest;
 
-
-//*****************************
-//         Utils
-//*****************************
 function isJsonString(str) {
     try {
         JSON.parse(str);

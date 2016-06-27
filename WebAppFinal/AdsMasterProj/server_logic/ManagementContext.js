@@ -21,13 +21,12 @@ exports.loadAllDisplays = function(dataCallback) {
 };
 
 exports.validateAd = function(ad,alerts){
-
     var valid = true;
     console.log('Ad is : ' + JSON.stringify(ad));
     // Ensure basic data is not empty
     if (ad.name ==""){
         valid = false;
-        alerts.push("Ad name cannot be empty");
+        alerts.push("Ad's name cannot be empty");
     }
     if (ad.stationId == ""){
         valid = false;
@@ -35,7 +34,7 @@ exports.validateAd = function(ad,alerts){
     }
     if (ad.owner ==""){
         valid = false;
-        alerts.push("Owner name cannot be empty");
+        alerts.push("Owner's name cannot be empty");
     }
     if (ad.fields ==""){
         valid = false;
@@ -49,8 +48,6 @@ exports.validateAd = function(ad,alerts){
         valid = false;
         alerts.push("Invested money needs to be between 100 and 5000");
     }
-
-    // Check dates
     if (ad.timeFrame.startDate ==""){
         valid = false;
         alerts.push("Start date cannot be empty");

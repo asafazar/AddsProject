@@ -8,7 +8,7 @@
                 <!-- Data rows -->
                 <tr data-ng-repeat="ad in $data">
                     <td data-title="'name'" sortable="'name'" filter="{ 'name': 'text' }">{{ad.name}}</td>
-                    <td data-title="'Station'" sortable="'stationId'" filter="{ 'stationId': 'text' }">{{ad.stationId}}</td>
+                    <td data-title="'Station'" sortable="'stationId'" filter="{ 'stationId': 'text' }">{{getStationNameById(ad.stationId)}}</td>
                     <td data-title="'owner'" sortable="'owner'" filter="{ 'owner': 'text' }"> {{ad.owner}}</td>
                     <td data-title="'Field'" sortable="'fields'" filter="{ 'fields': 'text' }">{{ad.fields}}</td>
                     <td data-title="'Budget'" sortable="'moneyInvested'">{{ad.moneyInvested}}</td>

@@ -12,13 +12,10 @@ var restHandler = require('./RestHandler');
 
 exports = module.exports = startServer;
 
-// Main function called by Express on startup
 function startServer(server) {
     io = require('socket.io')(server);
 
     mongoConn.connect(function() {
-        // Connection to Mongo succeed - prepare listeners
-
         setSocketIoConnectionListener();
     });
 }
@@ -26,7 +23,6 @@ function startServer(server) {
 function setSocketIoConnectionListener() {
     // Prepare client listeners for new connection
     io.on('connection', function (client) {
-        //***client.displayId = 0;
         setSocketIoListeners(client);
     });
 }
@@ -63,7 +59,7 @@ function setSocketIoListeners(client) {
     client.on('DeleteAd', function(data) {
         if (typeof data.adId === 'undefined') return;
         logEvent('DeleteAd', data);
-        console.log("Ad to delete id is " + data.adId);
+        console.log("Delete Ad with id " + data.adId);
         onDeleteAd(client , data.adId);
     });
 
@@ -97,13 +93,13 @@ function setSocketIoListeners(client) {
 function onGetAds(client, getAll){
     if (getAll){
         managementCtx.getManagementData(function(data) {
-            console.log('Emiting AllAds response, Data : ');
+            console.log('Emiting All Ads response, Data : ');
             console.log(JSON.stringify(data));
             client.emit('AllAdsResponse', {allAds : data});
         });
     } else {
         displayCtx.getDisplayData(function(data) {
-            console.log('Emiting ActiveAds response ');
+            console.log('Emiting Active Ads response ');
             client.emit('ActiveAdsResponse', {activeAds : data});
         });
     }
@@ -134,7 +130,7 @@ function onValidateAd (client, ad){
 function onCreateAd(adData) {
     managementCtx.createAd(adData, function(success) {
         if (success) {
-            console.log("Emiting AdUpdate");
+            console.log("Emiting Ad create");
             io.sockets.emit('AdCreated');
         }
         else {
@@ -146,11 +142,11 @@ function onCreateAd(adData) {
 function onDeleteAd(client, adId) {
     managementCtx.deleteAd(adId, function(success) {
         if (success) {
-            console.log("Delete went well");
+            console.log("Ad deleted successfully well");
             io.sockets.emit('AdDeleted',{id : adId});
         }
         else {
-            console.log("Could not delete the ad");
+            console.log("Could not delete ad : " + adId);
         }
     });
 }
@@ -158,18 +154,18 @@ function onDeleteAd(client, adId) {
 function onEditAd(adId, adData) {
     managementCtx.editAd(adId, adData, function(success) {
         if (success) {
-            console.log("Emiting AdUpdate");
+            console.log("Emiting Ad update");
             io.sockets.emit('AdUpdated',{id : adId});
         }
         else {
-            console.log("Could not update the ad");
+            console.log("Could not update ad : " + adId);
         }
     });
 }
 
 function onLoadAllDisplays(client) {
     managementCtx.loadAllDisplays(function(data) {
-        console.log('Emiting DisplaysData response, Data : ');
+        console.log('Emiting Displays Data response, Data : ');
         console.log(JSON.stringify(data));
         client.emit("DisplaysData", data);
     });
@@ -260,9 +256,6 @@ function sendManagementData(specificClient) {
     });
 }
 
-//*****************************
-//         Logging
-//*****************************
 function logEvent(eventName, eventData){
     console.log("Event received. Event name : " + eventName + " , Data : " + JSON.stringify(eventData));
 }

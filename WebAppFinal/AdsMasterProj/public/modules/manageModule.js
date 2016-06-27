@@ -3,6 +3,19 @@ var manageModule = angular.module('manageModule',['ngRoute','ngTable','ui.bootst
 manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams, serverApi, adsService){
     $scope.tempa = adsService;
     $scope.ads = $scope.tempa.allAds;
+    $scope.getStationNameById = function(stationId)
+    {
+        var stationName = '';
+        $scope.tempa.allStations.forEach(function(station)
+        {
+          if (station.id === stationId)
+          {
+              stationName = station.name;
+          }
+        });
+
+        return stationName;
+    };
 
     $scope.$watchCollection('tempa.allAds',function(newValue , oldValue){
         $scope.ads = newValue;
@@ -10,25 +23,23 @@ manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams
     });
 
     $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,           // count per page
+        page: 1,
+        count: 10,
         sorting: {
-            name: 'asc'     // initial sorting
+            name: 'asc'
         },
         filter: {
-            name: ''      // initial filter
+            name: ''
         }
 
     }, {
-        total: $scope.ads.length, // length of data
+        total: $scope.ads.length,
         getData: function($defer, params) {
 
-            // Filter (Using anguar's default filter)
             var orderedData = params.filter() ?
                 $filter('filter')($scope.ads, params.filter()) :
                 $scope.ads;
 
-            // Now , order filtered data
             orderedData = params.sorting() ?
                 $filter('orderBy')(orderedData, params.orderBy()) :
                 orderedData;

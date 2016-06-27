@@ -5,7 +5,7 @@ displayModule.controller('displayAdsCtrl',function($scope,$timeout,adsService){
     var timer;
     var emptyAd = {
         name : "This is an example",
-        owner : "The Ads Master",
+        owner : "Ads With Us",
         texts : [ { text: 'try it yourself' } ],
         images : [{url: '/images/canvs1.jpg'}],
         moneyInvested : 200

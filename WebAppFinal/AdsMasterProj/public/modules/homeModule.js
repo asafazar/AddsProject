@@ -1,7 +1,6 @@
 var homeModule = angular.module('homeModule',['ngTable','uiGmapgoogle-maps','socketModule']);
 
 homeModule.controller('songsController',function ($scope,$filter,ngTableParams,serverApi){
-    // Declare the wanted track type.
     $scope.trackType = "track";
     $scope.itunesItems = [];
 
@@ -15,27 +14,24 @@ homeModule.controller('songsController',function ($scope,$filter,ngTableParams,s
         serverApi.emit_GetItunesData(searchTerm);
     }
 
-
     $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,           // count per page
+        page: 1,
+        count: 10,
         sorting: {
-            name: 'asc'     // initial sorting
+            name: 'asc'
         },
         filter: {
-            name: ''      // initial filter
+            name: ''
         }
 
     }, {
-        total: $scope.itunesItems.length, // length of data
+        total: $scope.itunesItems.length,
         getData: function($defer, params) {
 
-            // Filter (Using anguar's default filter)
             var orderedData = params.filter() ?
                 $filter('filter')($scope.itunesItems, params.filter()) :
                 $scope.itunesItems;
 
-            // Now , order filtered data
             orderedData = params.sorting() ?
                 $filter('orderBy')(orderedData, params.orderBy()) :
                 orderedData;
