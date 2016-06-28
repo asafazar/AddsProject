@@ -1,19 +1,13 @@
 var socketModule = angular.module('socketModule', []);
 
 /**
- Factory to wrap the logic of "socketIo".
- Current design is that the controller needs to delete all listeners that it has
- used once its scope is destroyed.
+ Factory that wraps the logic of "socketIo".
  **/
 socketModule.factory('socket', function ($rootScope) {
 
     var serverSocket = io.connect('http://localhost:8080');
 
-
     return {
-        /*
-         * Basic socket API
-         */
         on : function (eventName, callBack){
             serverSocket.on(eventName, function (){
                 var args = arguments;
@@ -35,17 +29,14 @@ socketModule.factory('socket', function ($rootScope) {
         removeAllListeners: function (eventName, callBack) {
             serverSocket.removeAllListeners(eventName);
         }
-
     };
 });
 
-/* The bridge for the application and the server.
+/*
+The bridge for the application and the server.
  */
 socketModule.factory('serverApi', function ($rootScope, socket) {
     return {
-        //*********************
-        // Listeners
-        //*********************
         registerListener : function(eventName, callBack){
             socket.on(eventName,callBack);
         },

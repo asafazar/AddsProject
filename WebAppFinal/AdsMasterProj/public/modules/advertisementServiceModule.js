@@ -9,33 +9,31 @@ advertisementsModule.service('adsService',function(serverApi){
     //*******************
     //	Relevant socket listeners
     //*******************
-    /* Active ads */
     serverApi.registerListener(serverApi.serverEvent_ActiveAdsDataResponse, function (data) {
         this.activeAds = data.activeAds;
         console.log("Active ads amount : " + data.activeAds.length);
     }.bind(this));
-    /* Active ads by station */
+
     serverApi.registerListener(serverApi.serverEvent_ActiveAdsByStationRes, function (data) {
         this.activeAds = data.activeAds;
         console.log("Active ads amount : " + data.activeAds.length);
     }.bind(this));
-    /* All ads */
+
     serverApi.registerListener(serverApi.serverEvent_AllAdsDataResponse, function (data) {
         this.allAds = data.allAds;
         this.num = data.allAds.length;
     }.bind(this));
 
-    /* All ads */
     serverApi.registerListener(serverApi.serverEvent_AddCreatedEvent, function (data) {
         console.log("Got created ad event");
         refreshAllAds();
     });
-    /* All ads */
+
     serverApi.registerListener(serverApi.serverEvent_AddUpdatedEvent, function (data) {
         console.log("Got updated ad event");
         refreshAllAds();
     });
-    /* All ads */
+
     serverApi.registerListener(serverApi.serverEvent_AddDeletedEvent, function (data) {
         console.log("Got deleted ad event");
         refreshAllAds();
@@ -45,34 +43,35 @@ advertisementsModule.service('adsService',function(serverApi){
         this.allStations = data;
     }.bind(this));
 
-    function refreshActive(){
+    function refreshActiveAds(){
         serverApi.emit_GetActiveAdsData();
     }
-    function refreshActiveByStation(stationId){
+    function refreshActiveAdsByStation(stationId){
         serverApi.emit_GetActiveAdsByStation(stationId);
     }
-    function refreshFullAds(){
+    function refreshAllAds(){
         serverApi.emit_GetAllAdsData();
     }
 
     function refreshAllAds(){
-        refreshActive();
-        refreshFullAds();
+        refreshActiveAds();
+        refreshAllAds();
     }
 
     function getAdById(id){
         var ad = undefined;
+        var i;
 
-        var index;
-        for (index = 0; index < this.allAds.length; ++index) {
-            if(this.allAds[index]._id === id){
-                return this.allAds[index];
+        for (i = 0; i < this.allAds.length; ++i) {
+            if(this.allAds[i]._id === id){
+                return this.allAds[i];
             }
         }
+
         return ad;
     }
 
     this.getAdById = getAdById;
-    this.refreshActive = refreshActive;
-    this.refreshActiveByStation = refreshActiveByStation;
+    this.refreshActive = refreshActiveAds;
+    this.refreshActiveByStation = refreshActiveAdsByStation;
 });

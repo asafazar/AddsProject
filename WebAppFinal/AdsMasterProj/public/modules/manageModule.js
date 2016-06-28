@@ -1,34 +1,43 @@
 var manageModule = angular.module('manageModule',['ngRoute','ngTable','ui.bootstrap','socketModule','advertisementsModule']);
 
 manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams, serverApi, adsService){
-    $scope.tempa = adsService;
-    $scope.ads = $scope.tempa.allAds;
+    $scope.adService = adsService;
+    $scope.ads = $scope.adService.allAds;
 
-    $scope.$watchCollection('tempa.allAds',function(newValue , oldValue){
+    $scope.getStationNameById = function(stationId)
+    {
+        var stationName = '';
+        $scope.adService.allStations.forEach(function(station)
+        {
+          if (station.id === stationId)
+          {
+              stationName = station.name;
+          }
+        });
+
+        return stationName;
+    };
+
+    $scope.$watchCollection('adService.allAds',function(newValue , oldValue){
         $scope.ads = newValue;
         $scope.tableParams.reload();
     });
 
     $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,           // count per page
+        page: 1,
+        count: 10,
         sorting: {
-            name: 'asc'     // initial sorting
+            name: 'asc'
         },
         filter: {
-            name: ''      // initial filter
+            name: ''
         }
-
     }, {
-        total: $scope.ads.length, // length of data
+        total: $scope.ads.length,
         getData: function($defer, params) {
-
-            // Filter (Using anguar's default filter)
             var orderedData = params.filter() ?
                 $filter('filter')($scope.ads, params.filter()) :
                 $scope.ads;
-
-            // Now , order filtered data
             orderedData = params.sorting() ?
                 $filter('orderBy')(orderedData, params.orderBy()) :
                 orderedData;
@@ -54,13 +63,13 @@ manageModule.controller('EditAd',function($scope,$routeParams,$location,serverAp
     $scope.alerts = [];
 
     serverApi.registerListener(serverApi.serverEvent_AdValidation, function (data){
-        console.log("Caugth event");
+        console.log("Ad validation event catching");
         if (data.valid){
             serverApi.emit_AdUpdate($scope.ad._id,getCleanAd($scope.ad));
             $location.path('/manage');
         }
         else{
-            createWarning(data.alerts[0]);
+            createWarningMessage(data.alerts[0]);
         }
     });
 
@@ -77,10 +86,6 @@ manageModule.controller('EditAd',function($scope,$routeParams,$location,serverAp
 
     $scope.doEdit = doEdit;
 
-    //************
-    //  Creation methods
-    //************
-    /* Removes listeners from socket once scope is no longer in use */
     $scope.$on('$destroy', function (event) {
         serverApi.clearEventsListeners(serverApi.serverEvent_AdValidation);
     });
@@ -100,7 +105,7 @@ manageModule.controller('createAd',function($scope,$location,serverApi, adsServi
             $location.path('/manage');
         }
         else{
-            createWarning(data.alerts[0], $scope);
+            createWarningMessage(data.alerts[0], $scope);
         }
     });
 
@@ -132,7 +137,7 @@ manageModule.controller('createAd',function($scope,$location,serverApi, adsServi
 //************
 //  Create alerts
 //************
-function createWarning(mes, $scope){
+function createWarningMessage(mes, $scope){
     var newAlert = {
         type:'danger',
         msg : mes
@@ -152,41 +157,41 @@ function validateAd($scope){
     // Ensure basic data is not empty
     if ($scope.ad.name == ""){
         valid = false;
-        createWarning("Ad name cannot be empty", $scope);
+        createWarningMessage("Ad name cannot be empty", $scope);
     }
     if ($scope.ad.stationId == ""){
         valid = false;
-        createWarning("Ad must be linked to station", $scope);
+        createWarningMessage("Ad must be linked to station", $scope);
     }
     if ($scope.ad.owner ==""){
         valid = false;
-        createWarning("Owner name cannot be empty", $scope);
+        createWarningMessage("Owner name cannot be empty", $scope);
     }
     if ($scope.ad.fields ==""){
         valid = false;
-        createWarning("Ad field cannot be empty", $scope);
+        createWarningMessage("Ad field cannot be empty", $scope);
     }
     if ($scope.ad.moneyInvested ==""){
         valid = false;
-        createWarning("Invested money cannot be empty", $scope);
+        createWarningMessage("Invested money cannot be empty", $scope);
     }
     if (($scope.ad.moneyInvested < 100) || ($scope.ad.moneyInvested > 5000)){
         valid = false;
-        createWarning("Invested money needs to be between 100 and 5000", $scope);
+        createWarningMessage("Invested money needs to be between 100 and 5000", $scope);
     }
 
     // Check dates
     if ($scope.ad.timeFrame.startDate ==""){
         valid = false;
-        createWarning("Start date cannot be empty", $scope);
+        createWarningMessage("Start date cannot be empty", $scope);
     }
     if ($scope.ad.timeFrame.endDate ==""){
         valid = false;
-        createWarning("End date cannot be empty", $scope);
+        createWarningMessage("End date cannot be empty", $scope);
     }
     if (new Date($scope.ad.timeFrame.startDate) > new Date($scope.ad.timeFrame.endDate)){
         valid = false;
-        createWarning("End date cannot be after start date", $scope);
+        createWarningMessage("End date cannot be after start date", $scope);
     }
 
     return valid;

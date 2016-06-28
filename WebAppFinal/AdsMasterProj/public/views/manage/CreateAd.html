@@ -3,12 +3,12 @@
 <form class="form-group">
     <accordion close-others="oneAtATime">
         <accordion-group heading="General data" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-            <label for="usr">Name:</label>    <input  type="text" class="form-control" ng-model="ad.name" required="true" placeholder="How shall we call the ad?"/><br />
-            <label for="usr">Owner:</label>   <input type="text" class="form-control" ng-model="ad.owner" required="true" placeholder="you ?"/><br />
+            <label for="usr">Name:</label>    <input  type="text" class="form-control" ng-model="ad.name" required="true" placeholder="What is the name of the ad?"/><br />
+            <label for="usr">Owner:</label>   <input type="text" class="form-control" ng-model="ad.owner" required="true" placeholder="and you ?"/><br />
             <label for="usr">Field:</label>   <input type="text" class="form-control" ng-model="ad.fields" required="true" placeholder="What is the ad field?"/><br />
             <label for="usr">Display station:</label>
                 <select class="form-control" ng-model="ad.stationId" ng-required="true">
-                    <option ng-repeat="stationOpt in optionalStations" value="{{stationOpt.id}}">{{stationOpt.id}}</option>
+                    <option ng-repeat="stationOpt in optionalStations" value="{{stationOpt.id}}">{{stationOpt.name}}</option>
                 </select><br />
             <label for="usr">Invested money:</label> <input type="number" class="form-control" ng-model="ad.moneyInvested" required="true" min="200" max="5000" ><br />
         </accordion-group>
@@ -16,8 +16,6 @@
             <label for="usr"> Text 1 : </label> <input type="text" class="form-control" ng-model="ad.texts[0].text" /><br />
             <label for="usr"> Text 2 : </label> <input type="text"  class="form-control" ng-model="ad.texts[1].text" /><br />
             <label for="usr"> Text 3 : </label> <input type="text" class="form-control" ng-model="ad.texts[2].text" /><br />
-            <label for="usr"> Text 4 : </label> <input type="text" class="form-control" ng-model="ad.texts[3].text" /><br />
-            <label for="usr"> Text 5 : </label> <input type="text" class="form-control" ng-model="ad.texts[4].text" /><br />
         </accordion-group>
         <accordion-group heading="Images">
             <label for="usr"> Image 1 : </label> <input type="text" class="form-control" ng-model="ad.images[0].url" /><br />
