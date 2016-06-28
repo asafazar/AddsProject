@@ -3,7 +3,12 @@
 
 <h2 class="head-owner" ng-show="displayedAd.name.length">{{displayedAd.owner}} <br></h2>
 <h2 class="head-name" ng-show="displayedAd.name.length">{{displayedAd.name}}<br></h2>
-<span ng-repeat="text in displayedAd.texts">
+<span ng-if="!displayedAd.name.localeCompare('This is an example')">
+    <h4 class="head-text">
+        <a  href="#/manage/createAd/">try it yourself!</a>
+    </h4>
+</span>
+<span ng-if="displayedAd.name.localeCompare('This is an example')" ng-repeat="text in displayedAd.texts">
     <h4 class="head-text"> {{text.text}} </h4>
 </span>
 <div ng-repeat="image in displayedAd.images" style="text-align: center;">

@@ -42,11 +42,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error('Port ' + port + ' requires elevated privileges');
+      console.error('Port ' + port + ' requires higher privileges');
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error('Port ' + port + ' is already in use');
+      console.error('The Port ' + port + ' is already in use');
       process.exit(1);
       break;
     default:
@@ -59,5 +59,5 @@ function onError(error) {
  */
 
 function onListening() {
-  debug('Listening on port' + server.address().port);
+  debug('Now Listening on port' + server.address().port);
 }
