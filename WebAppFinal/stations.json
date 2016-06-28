@@ -1,25 +1,25 @@
 {	
 	'id': '1',
-	'name': 'Rothschild Blvd',
+	'name': 'Patach Tikva',
 	'location':	{
-		lat: '32.069896',
-		long: '34.778652'
+		lat: '32.0907851',
+		long: '34.9222051'
 	}
 }
 {	
 	'id': '2',
-	'name': 'Jerusalem',
+	'name': 'Raanana',
 	'location':	{
-		lat: '31.777572',
-		long: '35.230379'
+		lat: '32.1896363',
+		long: '34.8808146'
 	}
 }
 {	
 	'id': '3',
-	'name': 'HaYarkon St',
+	'name': 'Hod HaSharon',
 	'location':	{
-		lat: '32.074829',
-		long: '34.766416'
+		lat: '32.1499562',
+		long: '34.9188984'
 	}
 }
 {	
@@ -40,41 +40,41 @@
 }
 {	
 	'id': '6',
-	'name': 'Netanya',
+	'name': 'Kefar Saba',
 	'location':	{
-		lat: '32.318691',
-		long: '34.863052'
+		lat: '32.1809507',
+		long: '34.9067523'
 	}
 }
 {	
 	'id': '7',
-	'name': 'Haifa',
+	'name': 'Tel-Aviv',
 	'location':	{
-		lat: '32.797304',
-		long: '34.994202'
+		lat: '32.1809507',
+		long: '34.9067523'
 	}
 }
 {	
 	'id': '8',
-	'name': 'Afula',
+	'name': 'Eilat',
 	'location':	{
-		lat: '32.608941',
-		long: '35.289459'
+		lat: '29.5897521',
+		long: '35.0241069'
 	}
 }
 {	
 	'id': '9',
-	'name': 'Nahariya',
+	'name': 'Beer Sheva',
 	'location':	{
-		lat: '33.004849',
-		long: '35.101318'
+		lat: '31.2614223',
+		long: '34.8609273'
 	}
 }
 {	
 	'id': '10',
-	'name': 'Ramot Naftali',
+	'name': 'Rosh HaNikra',
 	'location':	{
-		lat: '33.101536',
-		long: '35.559998'
+		lat: '33.0861909',
+		long: '35.1200278'
 	}
 }
