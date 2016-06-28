@@ -88,7 +88,7 @@ a, a:hover, a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #e466f0;
 }
 
 .bg-theme02 {
@@ -218,11 +218,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #68dff0;
+	background-color: #e466f0;
 }
 
 .bg-theme {
-	background-color: #68dff0;
+	background-color: #e466f0;
 }
 
 ul.top-menu > li > .logout {
@@ -1686,7 +1686,7 @@ PANELS CONFIGURATIONS
   display: block;
   position: relative;
   overflow: hidden;
-  background-color: #68dff0;
+  background-color: #e466f0;
   -webkit-transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
@@ -1846,7 +1846,7 @@ label {
     left: 0%;
 }
 .has-switch > div.switch-on label {
-    background-color: #41cac0;
+    background-color: #725675;
 }
 .has-switch input[type=checkbox] {
     display: none;
@@ -1877,7 +1877,7 @@ label {
 .has-switch span.switch-left {
     border-radius: 30px 0 0 30px;
     background-color: #2A3542;
-    color: #41cac0;
+    color: #e466f0;
     border-left: 1px solid transparent;
 }
 .has-switch span.switch-right {
@@ -2288,4 +2288,38 @@ label {
 li.asideList > a.active {
     background-color: transparent !important;
     color: #e466f0 !important;
+}
+
+.my-table{
+    color: #DFD8DE;
+}
+
+.my-table tr:hover{
+    color: #D297A5;
+}
+
+.my-table th{
+    color: #D297A5;
+}
+
+/*Display Ads*/
+
+.head-owner{
+    color: #D297A5;
+    font-weight: bold;
+    text-align: center
+}
+.head-name{
+    color: #D297A5;
+    font-weight: bold;
+    text-align: center
+}
+.head-text{
+    color: #DFD8DE;
+    font-weight: bold;
+    text-align: center
+}
+
+.ad-image{
+
 }

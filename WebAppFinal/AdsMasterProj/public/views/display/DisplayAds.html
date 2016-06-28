@@ -1,21 +1,33 @@
-<h3 class="head-h"><i class="fa fa-circle"></i> Your Displayed Ads </h3>
+<h3 class="head-h"> Your Displayed Ads </h3>
 <hr>
 
-<h2 style="color: #052f57; font-weight: bold; text-align: center" ng-show="displayedAd.name.length">{{displayedAd.name}} by {{displayedAd.owner}} <br></h2>
-
+<h2 class="head-owner" ng-show="displayedAd.name.length">{{displayedAd.owner}} <br></h2>
+<h2 class="head-name" ng-show="displayedAd.name.length">{{displayedAd.name}}<br></h2>
+<span ng-repeat="text in displayedAd.texts">
+    <h4 class="head-text"> {{text.text}} </h4>
+</span>
+<div ng-repeat="image in displayedAd.images" style="text-align: center;">
+    <div>
+        <div style="margin-left: 5px; margin-right: 5px;">
+            <img src="{{image.url}}" width="300" height="300" style="margin:20px">
+        </div>
+    </div>
+</div>
+<!--
 <div class="row">
     <div class="main-chart">
         <div class="col-md-4 mb" style="padding-top: 5px">
             <span ng-repeat="text in displayedAd.texts">
-                <h4> {{text.text}} </h4>
+                <h4 class="head-h"> {{text.text}} </h4>
             </span>
-        </div><!-- /row -->
+        </div>
         <div ng-repeat="image in displayedAd.images" class="col-md-4 mb">
             <div>
                 <div style="margin-left: 5px; margin-right: 5px;">
                     <img src="{{image.url}}" width="300" height="300" style="margin:20px">
-                </div><! --/grey-panel -->
-            </div><!-- /col-md-4-->
-        </div><!-- /row -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+-->

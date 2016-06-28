@@ -1,12 +1,12 @@
-<h3 class="head-h"><i class="fa fa-circle"></i> Statistics</h3>
+<h3 class="head-h"> Statistics</h3>
 <div class="row">
     <div class="col-md-12">
         <div class="content-panel">
-            <h4 class="head-h"><i class="fa fa-circle"></i> Total number of owners is {{ownersData.length}} </h4>
+            <h4 class="head-h"> Total number of owners is {{ownersData.length}} </h4>
             <hr>
-            <table ng-table="tableParams" class="table table-striped table-bordered table-hover table-condensed">
+            <table ng-table="tableParams" class="table table-hover my-table">
                 <tr data-ng-repeat="owner in $data">
-                    <td data-title="'owner'" sortable="'owner'"> {{owner.owner}}</td>
+                    <td data-title="'Owner'" sortable="'owner'"> {{owner.owner}}</td>
                     <td data-title="'Number Of Ads'" sortable="'count'">{{owner.count}}</td>
                     <td data-title="'Total Budget'" sortable="'moneyInvested'">{{owner.moneyInvested}}</td>
                 </tr>
@@ -16,7 +16,7 @@
 </div>
 
 <br/>
-<a onclick="showCharts()"><h4 class="head-l"><i class="fa fa-circle"></i> Click To See Charts </h4></a>
+<a onclick="showCharts()"><h4 class="head-l"> Click To See Charts </h4></a>
 <div hidden class="row charts-content">
     <div class="showback">
         <span ng-repeat="own in ownersColors" class="badge" style="background: {{own.color}}; margin-left: 10px">{{own.name}}</span>
@@ -25,7 +25,7 @@
     <div class="col-lg-6">
         <input id="myHiddenBudgetPie" type="hidden" value="{{budgetPieData}}">
         <div class="content-panel">
-            <h4 class="head-h"><i class="fa fa-circle"></i> Budget Per Owner </h4>
+            <h4 class="head-h"> Budget Per Owner </h4>
             <div class="panel-body text-center">
                 <canvas id="budgetPie" height="300" width="400"></canvas>
             </div>
@@ -34,7 +34,7 @@
     <div class="col-lg-6">
         <input id="myHiddenAdsPie" type="hidden" value="{{adsPieData}}">
         <div class="content-panel">
-            <h4 class="head-h"><i class="fa fa-circle"></i> Ads Per Owner </h4>
+            <h4 class="head-h"> Ads Per Owner </h4>
             <div class="panel-body text-center">
                 <canvas id="adsPie" height="300" width="400"></canvas>
             </div>
