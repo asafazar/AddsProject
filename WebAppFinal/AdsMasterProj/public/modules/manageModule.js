@@ -1,12 +1,13 @@
 var manageModule = angular.module('manageModule',['ngRoute','ngTable','ui.bootstrap','socketModule','advertisementsModule']);
 
 manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams, serverApi, adsService){
-    $scope.tempa = adsService;
-    $scope.ads = $scope.tempa.allAds;
+    $scope.adService = adsService;
+    $scope.ads = $scope.adService.allAds;
+
     $scope.getStationNameById = function(stationId)
     {
         var stationName = '';
-        $scope.tempa.allStations.forEach(function(station)
+        $scope.adService.allStations.forEach(function(station)
         {
           if (station.id === stationId)
           {
@@ -17,7 +18,7 @@ manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams
         return stationName;
     };
 
-    $scope.$watchCollection('tempa.allAds',function(newValue , oldValue){
+    $scope.$watchCollection('adService.allAds',function(newValue , oldValue){
         $scope.ads = newValue;
         $scope.tableParams.reload();
     });
@@ -31,15 +32,12 @@ manageModule.controller('manageIndexCtrl',function ($scope,$filter,ngTableParams
         filter: {
             name: ''
         }
-
     }, {
         total: $scope.ads.length,
         getData: function($defer, params) {
-
             var orderedData = params.filter() ?
                 $filter('filter')($scope.ads, params.filter()) :
                 $scope.ads;
-
             orderedData = params.sorting() ?
                 $filter('orderBy')(orderedData, params.orderBy()) :
                 orderedData;
@@ -65,7 +63,7 @@ manageModule.controller('EditAd',function($scope,$routeParams,$location,serverAp
     $scope.alerts = [];
 
     serverApi.registerListener(serverApi.serverEvent_AdValidation, function (data){
-        console.log("Caugth event");
+        console.log("Ad validation event catching");
         if (data.valid){
             serverApi.emit_AdUpdate($scope.ad._id,getCleanAd($scope.ad));
             $location.path('/manage');
@@ -88,10 +86,6 @@ manageModule.controller('EditAd',function($scope,$routeParams,$location,serverAp
 
     $scope.doEdit = doEdit;
 
-    //************
-    //  Creation methods
-    //************
-    /* Removes listeners from socket once scope is no longer in use */
     $scope.$on('$destroy', function (event) {
         serverApi.clearEventsListeners(serverApi.serverEvent_AdValidation);
     });
