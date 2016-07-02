@@ -89,13 +89,17 @@ homeModule.controller('statsCtrl',function ($scope, $filter,ngTableParams, serve
     $scope.budgetPieData = [];
     $scope.adsPieData = [];
     $scope.ownersColors = [];
-    $scope.colors = ["#1abc9c", "#00b0ff", "#27ae60", "#ff9e80", "#ce93d8", "#f48fb1", "#7e57c2", "#f0f4c3"];
+    $scope.adsDataSet=[];
+    $scope.budgetDataSet=[];
+    $scope.colors = ["#DAF7A6", "#FFC300", "#FF5733", "#C70039", "#900C3F"];
 
     serverApi.registerListener(serverApi.serverEvent_OwnersDataResponse, function (data) {
         $scope.ownersData = data;
         $scope.budgetPieData = [];
         $scope.adsPieData = [];
+        $scope.budgetDataSet=[];
         $scope.ownersColors = [];
+        $scope.adsDataSet=[];
 
         $scope.ownersData.forEach(function(owner){
             $scope.budgetPieData.push(
@@ -112,9 +116,17 @@ homeModule.controller('statsCtrl',function ($scope, $filter,ngTableParams, serve
                 {
                     name: owner.owner,
                     color: $scope.colors[$scope.ownersColors.length % $scope.colors.length]
-                }
-            );
-
+                });
+            $scope.adsDataSet.push(
+                {
+                    label: owner.owner,
+                    count: owner.count
+                });
+            $scope.budgetDataSet.push(
+                {
+                    label: owner.owner,
+                    count: owner.moneyInvested
+                });
         });
 
         $scope.tableParams.reload();
