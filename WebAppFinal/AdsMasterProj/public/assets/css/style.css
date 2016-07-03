@@ -446,6 +446,8 @@ a.logo {
     float: left;
     margin-top: 15px;
     text-transform: uppercase;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+    transition: width 2s, height 2s, transform 2s;
 }
 
 a.logo b {
@@ -455,6 +457,8 @@ a.logo b {
 a.logo:hover, a.logo:focus {
     text-decoration: none;
     outline: none;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(360deg);
 }
 
 a.logo span {
@@ -2268,11 +2272,11 @@ label {
 }
 
 #contactText {
-    -moz-column-count: 1;
+    -moz-column-count: 4;
     -moz-column-gap: 10px;
-    -webkit-column-count: 1;
+    -webkit-column-count: 4;
     -webkit-column-gap: 10px;
-    column-count: 1;
+    column-count: 4 ;
     column-gap: 10px;
     padding: 40px;
 }

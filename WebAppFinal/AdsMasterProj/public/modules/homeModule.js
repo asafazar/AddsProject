@@ -89,9 +89,9 @@ homeModule.controller('statsCtrl',function ($scope, $filter,ngTableParams, serve
     $scope.budgetPieData = [];
     $scope.adsPieData = [];
     $scope.ownersColors = [];
-    $scope.adsDataSet=[];
+        $scope.adsDataSet=[];
     $scope.budgetDataSet=[];
-    $scope.colors = ["#DAF7A6", "#FFC300", "#FF5733", "#C70039", "#900C3F"];
+    $scope.colors = ["#DAF7A6", "#FFC300", "#FF5733", "#C70039", "#900C3F","#581845"];
 
     serverApi.registerListener(serverApi.serverEvent_OwnersDataResponse, function (data) {
         $scope.ownersData = data;

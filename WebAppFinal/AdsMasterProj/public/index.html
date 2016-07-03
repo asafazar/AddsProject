@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <meta name="author" content="Orly&Asaf">
+    <meta name="author" content="Asaf&Orly&Ishai&Einav">
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -70,7 +70,7 @@
                         <span>Manage Your Ads</span>
                     </a>
                     <ul class="sub">
-                        <li class="asideList"><a  href="#/manage">Ads List</a></li>
+                        <li class="asideList"><a  href="#/manage">Your Ads</a></li>
                         <li class="asideList"><a  href="#/manage/createAd/">Create New Ad</a></li>
                     </ul>
                 </li>
@@ -81,9 +81,9 @@
                     </a>
                     <ul class="sub">
                         <li class="asideList"><a  href="#/songs">Serach Songs</a></li>
-                        <li class="asideList"><a  href="#/locations">See Locations Map</a></li>
+                        <li class="asideList"><a  href="#/locations">Locations Map</a></li>
                         <li class="asideList"><a href="#/stats">Statistics</a></li>
-                        <li class="asideList"><a href="#/tips">What if...</a></li>
+                        <li class="asideList"><a href="#/tips">Check It Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -105,7 +105,7 @@
     <!--footer start-->
     <footer class="site-footer">
         <div class="text-center">
-            &copy; ADS WITH US Orly Gabay 203628581 & Asaf Azar 204502815
+            &copy; ADS WITH US  Asaf Azar 204502815 & Orly Gabay 203628581 & Ishai Shor 311500094 & Einav Zeira 204616353
         </div>
     </footer>
     <!--footer end-->
@@ -193,6 +193,7 @@
             var pie = d3.layout.pie()
                     .value(function(d) { return d.count; })
                     .sort(null);
+
             var path = svg.selectAll('path')
                     .data(pie(dataset))
                     .enter()
