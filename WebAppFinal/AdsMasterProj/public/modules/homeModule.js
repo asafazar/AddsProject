@@ -1,7 +1,6 @@
 var homeModule = angular.module('homeModule',['ngTable','uiGmapgoogle-maps','socketModule']);
 
-homeModule.controller('songsController',function ($scope,$filter,ngTableParams,serverApi){
-    $scope.trackType = "track";
+homeModule.controller('itunesController',function ($scope,$filter,ngTableParams,serverApi){
     $scope.itunesItems = [];
 
     /* Handle itunes response */
@@ -16,7 +15,7 @@ homeModule.controller('songsController',function ($scope,$filter,ngTableParams,s
 
     $scope.tableParams = new ngTableParams({
         page: 1,
-        count: 10,
+        count: 200,
         sorting: {
             name: 'asc'
         },
@@ -48,7 +47,27 @@ homeModule.controller('songsController',function ($scope,$filter,ngTableParams,s
 });
 
 homeModule.controller('displaysMapCtrl',function ($scope, serverApi){
-    $scope.map = { center: { latitude: 32.069894, longitude: 34.778652 }, zoom: 8 };
+    $scope.map = {
+        center:
+        { latitude: 32.069894,
+            longitude: 34.778652
+        },
+        zoom: 8,
+        events: function (map, eventName, originalEventArgs) {
+            var e = originalEventArgs[0];
+            var lat = e.latLng.lat(),lon = e.latLng.lng();
+            var marker = {
+                id: Date.now(),
+                coords: {
+                    latitude: lat,
+                    longitude: lon
+                }
+            };
+            $scope.map.models.push(marker);
+            console.log($scope.map.markers);
+            $scope.$apply();
+    }};
+
     $scope.map.models = [];
 
     /* Handle displays data response */

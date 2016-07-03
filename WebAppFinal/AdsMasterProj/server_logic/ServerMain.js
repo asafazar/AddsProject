@@ -177,7 +177,7 @@ function onGetItunesData(client, searchTerm){
     var pEndpoint = '/search';
     var pMethod = 'GET';
     var pData = {
-        term : searchTerm,
+        term : searchTerm
     };
 
     var pSuccess = function(result){

@@ -9,10 +9,10 @@ mainApp.config(function($routeProvider){
             {
                 templateUrl: 'views/home/HomeIndex.html'
             })
-        .when('/songs',
+        .when('/itunes',
             {
-                controller: 'songsController',
-                templateUrl: 'views/home/Songs.html'
+                controller: 'itunesController',
+                templateUrl: 'views/home/Itunes.html'
             })
         .when('/locations',
             {
