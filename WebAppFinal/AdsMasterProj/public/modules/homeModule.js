@@ -15,7 +15,7 @@ homeModule.controller('itunesController',function ($scope,$filter,ngTableParams,
 
     $scope.tableParams = new ngTableParams({
         page: 1,
-        count: 200,
+        count: 100,
         sorting: {
             name: 'asc'
         },
