@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <meta name="author" content="Orly&Asaf">
+    <meta name="author" content="Asaf&Orly&Ishai&Einav">
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                     <img src="assets/img/logo.png" class="logo img-circle" width="60" onmouseover="$(this).attr('src','assets/img/logoA.png')" onmouseout="$(this).attr('src','assets/img/logo.png')"></p>
                 <li class="sub-menu">
                     <a href="javascript:;" >
-                        <i class="fa fa-desktop"></i>
+                        <i class="fa fa-youtube-play"></i>
                         <span>Ads Preview</span>
                     </a>
 
@@ -70,20 +70,20 @@
                         <span>Manage Your Ads</span>
                     </a>
                     <ul class="sub">
-                        <li class="asideList"><a  href="#/manage">Ads List</a></li>
+                        <li class="asideList"><a  href="#/manage">Your Ads</a></li>
                         <li class="asideList"><a  href="#/manage/createAd/">Create New Ad</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a class="active" href="javascript:;" >
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-plus-square"></i>
                         <span>More Options</span>
                     </a>
                     <ul class="sub">
                         <li class="asideList"><a  href="#/itunes">Media Search</a></li>
                         <li class="asideList"><a  href="#/locations">See Locations Map</a></li>
                         <li class="asideList"><a href="#/stats">Statistics</a></li>
-                        <li class="asideList"><a href="#/tips">What if...</a></li>
+                        <li class="asideList"><a href="#/tips">Check It Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -105,7 +105,7 @@
     <!--footer start-->
     <footer class="site-footer">
         <div class="text-center">
-            &copy; 2016 Advanced Web Applications, Orly Gabay & Asaf Azar . All Rights Reserved.
+            &copy; ADS WITH US  Asaf Azar 204502815 & Orly Gabay 203628581 & Ishai Shor 311500094 & Einav Zeira 204616353
         </div>
     </footer>
     <!--footer end-->
@@ -136,29 +136,109 @@
 
 <!--script for this page-->
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="js/canvas.js"></script>
-<script src="assets/js/chart-master/Chart.js"></script>
 
 <script>
-    var showBudgetChart = function(){
-        var pie_data = document.getElementById("myHiddenBudgetPie").getAttribute("value");
+
+    var getAdsDataSet = function(){
+        var pie_data = document.getElementById("adsChart").getAttribute("value");
         pie_data[0] = '{';
         pie_data[pie_data.length - 1] = '}';
         var myArr = $.parseJSON(pie_data);
-        new Chart(document.getElementById("budgetPie").getContext("2d")).Pie(myArr);
+        return myArr;
     }
 
-    var showAdsChart = function(){
-        var pie_data = document.getElementById("myHiddenAdsPie").getAttribute("value");
+    var getBudgetsDataSet = function(){
+        var pie_data = document.getElementById("budgetChart").getAttribute("value");
         pie_data[0] = '{';
         pie_data[pie_data.length - 1] = '}';
         var myArr = $.parseJSON(pie_data);
-        new Chart(document.getElementById("adsPie").getContext("2d")).Pie(myArr);
+        return myArr;
+    }
+
+    var getOwnerColor = function(owner){
+        var pie_data = document.getElementById("ownerColors").getAttribute("value");
+        pie_data[0] = '{';
+        pie_data[pie_data.length - 1] = '}';
+        var myArr = $.parseJSON(pie_data);
+        var color = 'black';
+
+        myArr.forEach(function(ownerColor){
+            if (owner == ownerColor.name)
+            {
+                color = ownerColor.color;
+            }
+        });
+
+        return color;
+    }
+
+    var showAdChart = function(){
+        (function(d3) {
+            'use strict';
+            var dataset = getAdsDataSet();
+            var width = 360;
+            var height = 360;
+            var radius = Math.min(width, height) / 2;
+            var svg = d3.select('#adsChartPie')
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .append('g')
+                    .attr('transform', 'translate(' + (width / 2) +
+                            ',' + (height / 2) + ')');
+            var arc = d3.svg.arc()
+                    .outerRadius(radius);
+            var pie = d3.layout.pie()
+                    .value(function(d) { return d.count; })
+                    .sort(null);
+
+            var path = svg.selectAll('path')
+                    .data(pie(dataset))
+                    .enter()
+                    .append('path')
+                    .attr('d', arc)
+                    .attr('fill', function(d, i) {
+                        return getOwnerColor(d.data.label);
+                    });
+        })(window.d3);
+    }
+
+    var showBudgetsChart = function(){
+        (function(d3) {
+            'use strict';
+            var dataset = getBudgetsDataSet();
+            var width = 360;
+            var height = 360;
+            var radius = Math.min(width, height) / 2;
+
+            var svg = d3.select('#budgetChartPie')
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .append('g')
+                    .attr('transform', 'translate(' + (width / 2) +
+                            ',' + (height / 2) + ')');
+            var arc = d3.svg.arc()
+                    .outerRadius(radius);
+            var pie = d3.layout.pie()
+                    .value(function(d) { return d.count; })
+                    .sort(null);
+            var path = svg.selectAll('path')
+                    .data(pie(dataset))
+                    .enter()
+                    .append('path')
+                    .attr('d', arc)
+                    .attr('fill', function(d, i) {
+                        return getOwnerColor(d.data.label);
+                    });
+        })(window.d3);
     }
 
     var showCharts = function() {
-        showBudgetChart();
-        showAdsChart();
+        showAdChart();
+        showBudgetsChart();
 
         $(".charts-content").toggle();
     }

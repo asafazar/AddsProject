@@ -48,6 +48,33 @@
 			endDate:"2019-04-30"
 			}
 }
+
+{
+	stationId: '5',
+	name: 'NIKE free',
+	owner: 'Nike',
+	fields: 'sport',
+	moneyInvested: 500,
+	texts: [
+		{
+			text: 'NIKE Free'
+		},
+		{
+			text: 'free yourself'
+		}
+	],
+	images: [
+		{
+			url: 'https://s-media-cache-ak0.pinimg.com/236x/5b/27/68/5b276841706f2c156a3a33fd4cad019f.jpg'
+		}
+	],
+	timeFrame:
+			{	
+			startDate:"2014-03-01",
+			endDate:"2019-04-30"
+			}
+}
+
 {
 	stationId: '3',
 	name: 'adidas',
@@ -98,7 +125,7 @@
 }
 {
 	stationId: '3',
-	name: 'SAMSUNG',
+	name: 'GALAXY S3',
 	owner: 'SAMSUNG',
 	fields:'phones',
 	moneyInvested: 450,
@@ -120,6 +147,58 @@
 			endDate:"2017-04-30"
 		}
 }
+
+{
+	stationId: '3',
+	name: 'Gear S2',
+	owner: 'SAMSUNG',
+	fields:'watches',
+	moneyInvested: 450,
+	texts: [
+		{
+			text: 'SAMSUNG'
+		},
+		{
+			text: 'Gear S2'
+		}
+	],
+	images: [
+		{
+			url: 'http://www.gadgety.co.il/wp-content/themes/main/thumbs/2015/09/Samsung-Gear-S2-21.jpg'
+		}
+	],
+	timeFrame:{	
+			startDate:"2014-03-01",
+			endDate:"2015-04-30"
+		}
+}
+
+{
+	stationId: '6',
+	name: 'GALAXY S6',
+	owner: 'SAMSUNG',
+	fields:'phones',
+	moneyInvested: 450,
+	texts: [
+		{
+			text: 'SAMSUNG'
+		},
+		{
+			text: 'GALAXY S6'
+		}
+	],
+	images: [
+		{
+			url: 'http://www.gadgetdeals.co.il/UploadImages/000719/4325504.JPG'
+		}
+	],
+	timeFrame:{	
+			startDate:"2014-03-01",
+			endDate:"2018-04-30"
+		}
+}
+
+
 {
 	stationId: '1',
 	name: 'PANDORA',

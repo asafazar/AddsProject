@@ -20,24 +20,26 @@
 <div hidden class="row charts-content">
     <div class="showback">
         <span ng-repeat="own in ownersColors" class="badge" style="background: {{own.color}}; margin-left: 10px">{{own.name}}</span>
+        <input id="ownerColors" type="hidden" value="{{ownersColors}}">
     </div><!-- /showback -->
 
     <div class="col-lg-6">
-        <input id="myHiddenBudgetPie" type="hidden" value="{{budgetPieData}}">
+        <input id="adsChart" type="hidden" value="{{adsDataSet}}">
         <div class="content-panel">
-            <h4 class="head-h"> Budget Per Owner </h4>
+            <h4 class="head-h"> Ads Per Owner </h4>
             <div class="panel-body text-center">
-                <canvas id="budgetPie" height="300" width="400"></canvas>
+                <div id="adsChartPie" height="300" width="400"></div>
             </div>
         </div>
     </div>
     <div class="col-lg-6">
-        <input id="myHiddenAdsPie" type="hidden" value="{{adsPieData}}">
+            <input id="budgetChart" type="hidden" value="{{budgetDataSet}}">
         <div class="content-panel">
-            <h4 class="head-h"> Ads Per Owner </h4>
+            <h4 class="head-h"> Budget Per Owner </h4>
             <div class="panel-body text-center">
-                <canvas id="adsPie" height="300" width="400"></canvas>
+                <div id="budgetChartPie" height="300" width="400"></div>
             </div>
         </div>
     </div>
+
 </div>
