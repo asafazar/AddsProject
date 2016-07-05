@@ -1,0 +1,2 @@
+1. הרץ את הקובץ start mongo.bat
+2. הרץ את הקובץ start server.bat
