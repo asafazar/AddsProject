@@ -1,18 +1,12 @@
-
-// User Variables - customize these to change the image being scrolled, its
-// direction, and the speed.
-
 var CanvasXSize = 1306;
 var CanvasYSize = 905;
-var speed = 70; //lower is faster
+var speed = 70;
 var scale = 1.05;
-var y = -4.5; //vertical offset
-
-// Main program
+var y = -4.5;
 
 var dx = 0.75;
-var imgW;
-var imgH;
+var imgWidth;
+var imgHeight;
 var x = 0;
 var clearX;
 var clearY;
@@ -21,39 +15,49 @@ var already_loaded_once = false;
 
 function LoadCanvas() {
     img = document.getElementById('canvas-image');
-    imgW = img.width*scale;
-    imgH = img.height*scale;
-    if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // image larger than canvas
-    if (imgW > CanvasXSize) { clearX = imgW; } // image larger than canvas
-    else { clearX = CanvasXSize; }
-    if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
-    else { clearY = CanvasYSize; }
-    //Get Canvas Element
+    imgWidth = img.width*scale;
+    imgHeight = img.height*scale;
+    if (imgWidth > CanvasXSize) {
+        x = CanvasXSize-imgWidth;
+    }
+    if (imgWidth > CanvasXSize) {
+        clearX = imgWidth;
+    }
+    else {
+        clearX = CanvasXSize;
+    }
+    if (imgHeight > CanvasYSize) {
+        clearY = imgHeight;
+    }
+    else {
+        clearY = CanvasYSize;
+    }
     ctx = document.getElementById('welcome-canvas').getContext('2d');
-    //Set Refresh Rate
-    if (already_loaded_once == false) { setInterval(draw, speed); }
+
+    if (already_loaded_once == false) {
+        setInterval(draw, speed);
+    }
     already_loaded_once = true;
 }
 
 function draw() {
-    //Clear Canvas
     ctx.clearRect(0,0,clearX,clearY);
-    //If image is <= Canvas Size
-    if (imgW <= CanvasXSize) {
-        //reset, start from beginning
-        if (x > (CanvasXSize)) { x = 0; }
-        //draw aditional image
-        if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-CanvasXSize+1,y,imgW,imgH); }
+    if (imgWidth <= CanvasXSize) {
+        if (x > (CanvasXSize)) {
+            x = 0;
+        }
+        if (x > (CanvasXSize-imgWidth)) {
+            ctx.drawImage(img,x-CanvasXSize+1,y,imgWidth,imgHeight);
+        }
     }
-    //If image is > Canvas Size
     else {
-        //reset, start from beginning
-        if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
-        //draw aditional image
-        if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-imgW+1,y,imgW,imgH); }
+        if (x > (CanvasXSize)) {
+            x = CanvasXSize-imgWidth;
+        }
+        if (x > (CanvasXSize-imgWidth)) {
+            ctx.drawImage(img,x-imgWidth+1,y,imgWidth,imgHeight);
+        }
     }
-    //draw image
-    ctx.drawImage(img,x,y,imgW,imgH);
-    //amount to move
+    ctx.drawImage(img,x,y,imgWidth,imgHeight);
     x += dx;
 }
